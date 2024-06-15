@@ -1,9 +1,14 @@
 package main
 
-import "net/http"
+import (
+	"log"
+	"net/http"
 
-const (
-	httpAddress = "8080"
+	"github.com/ilhamdcp/dcp-go-microservice/common"
+)
+
+var (
+	httpPort = common.GetEnvString("HTTP_PORT", ":8081")
 )
 
 func main() {
@@ -11,5 +16,10 @@ func main() {
 	httpHandler := NewHttpHandler()
 	httpHandler.registerRoutes(mux)
 
-	err := http.ListenAndServe(httpAddress, httpHandler)
+	log.Printf("Start http server at port %s", httpPort)
+
+	err := http.ListenAndServe(httpPort, mux)
+	if err != nil {
+		log.Fatal("Failed to serve HTTP on port: {}")
+	}
 }
