@@ -1,4 +1,4 @@
-module github.com/ilhamdcp/dcp-go-microservice/inventory
+module github.com/ilhamdcp/go-microservice/inventory
 
 go 1.22.0
 

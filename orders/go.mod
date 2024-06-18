@@ -1,4 +1,4 @@
-module github.com/ilhamdcp/dcp-go-microservice/orders
+module github.com/ilhamdcp/go-microservice/orders
 
 go 1.22.0
 
